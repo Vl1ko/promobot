@@ -38,7 +38,7 @@ async def add_promo(message: types.Message):
     promo = message.text.split('\n')[1:]
 
     db.add_product(amount=amount, number=promo)
-    await message.answer(f"Промокод на сумму {amount} рублей с номером {promo} добавлен успешно")
+    await message.answer(f"Промокод на сумму {amount} звезд с номером {promo} добавлен успешно")
 
 @dp.message(Command('del_promo'))
 async def add_promo(message: types.Message):
