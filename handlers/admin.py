@@ -47,3 +47,50 @@ async def add_promo(message: types.Message):
     db.del_product(number=promo)
     await message.answer(f"Промокод с номером {promo} успешно удален")
 
+@dp.message(Command('hide_7'))
+async def hide(message: types.Message):
+  if message.from_user.id == ADMIN:
+    await message.answer("Промокоды на 7 дней скрыты")
+    db.hide_gifts(7)
+
+@dp.message(Command('hide_14'))
+async def hide(message: types.Message):
+  if message.from_user.id == ADMIN:
+    await message.answer("Промокоды на 14 дней скрыты")
+    db.hide_gifts(14)
+
+@dp.message(Command('hide_30'))
+async def hide(message: types.Message):
+  if message.from_user.id == ADMIN:
+    await message.answer("Промокоды на 30 дней скрыты")
+    db.hide_gifts(30)
+
+@dp.message(Command('hide_60'))
+async def hide(message: types.Message):
+  if message.from_user.id == ADMIN:
+    await message.answer("Промокоды на 60 дней скрыты")
+    db.hide_gifts(60)
+
+@dp.message(Command('show_7'))
+async def show(message: types.Message):
+  if message.from_user.id == ADMIN:
+    await message.answer("Промокоды на 7 дней отображены")
+    db.show_gifts(7)
+
+@dp.message(Command('show_14'))
+async def show(message: types.Message):
+  if message.from_user.id == ADMIN:
+    await message.answer("Промокоды на 14 дней отображены")
+    db.show_gifts(14)
+
+@dp.message(Command('show_30'))
+async def show(message: types.Message):
+  if message.from_user.id == ADMIN:
+    await message.answer("Промокоды на 30 дней отображены")
+    db.show_gifts(30)
+
+@dp.message(Command('show_60'))
+async def show(message: types.Message):
+  if message.from_user.id == ADMIN:
+    await message.answer("Промокоды на 60 дней отображены")
+    db.show_gifts(60)

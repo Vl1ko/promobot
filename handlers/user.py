@@ -33,19 +33,11 @@ db = Database(db_file=db_file)
 async def admin_menu(message: types.Message):
   builder = InlineKeyboardBuilder()
 
-  builder.row(types.InlineKeyboardButton(
-      text="Купить промокод 7 дней (220р)",
-      callback_data="buy_7"
-  ), types.InlineKeyboardButton(
-      text="Купить промокод 14 дней (380р)",
-      callback_data="buy_14"
-  ), types.InlineKeyboardButton(
-      text="Купить промокод 30 дней (760р)",
-      callback_data="buy_30"
-  ), types.InlineKeyboardButton(
-      text="Купить промокод 60 дней (1300р)",
-      callback_data="buy_60"
-  ), width=1)
+  for i in range(len(db.showed_gifts())):
+      builder.row(types.InlineKeyboardButton(
+          text=str(db.showed_gifts()[i]).replace("('", "").replace("',)", ""),
+          callback_data=str(db.showed_gifts()[i]).replace("('", "").replace("',)", "")
+      ), width=1)
   await message.answer("Выберите промокод, который желаете купить", reply_markup=builder.as_markup())
   
 @dp.callback_query(F.data == "buy_7")
