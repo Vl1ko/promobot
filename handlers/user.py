@@ -40,7 +40,7 @@ async def admin_menu(message: types.Message):
       ), width=1)
   await message.answer("Выберите промокод, который желаете купить", reply_markup=builder.as_markup())
   
-@dp.callback_query(F.data == "buy_7")
+@dp.callback_query(F.data == "Купить промокод 7 дней (220р)")
 async def buy_7(callback_query: types.CallbackQuery):
   await callback_query.message.reply_invoice(
       title="Промокод на 7 дней",
@@ -53,7 +53,7 @@ async def buy_7(callback_query: types.CallbackQuery):
   )
 
 
-@dp.callback_query(F.data == "buy_14")
+@dp.callback_query(F.data == "Купить промокод 14 дней (380р)")
 async def buy_14(callback_query: types.CallbackQuery):
   await callback_query.message.reply_invoice(
       title="Промокод на 14 дней",
@@ -65,7 +65,7 @@ async def buy_14(callback_query: types.CallbackQuery):
       ]
   )
 
-@dp.callback_query(F.data == "buy_30")
+@dp.callback_query(F.data == "Купить промокод 30 дней (760р)")
 async def buy_30(callback_query: types.CallbackQuery):
   await callback_query.message.reply_invoice(
       title="Промокод на 30 дней",
@@ -77,7 +77,7 @@ async def buy_30(callback_query: types.CallbackQuery):
       ]
   )
 
-@dp.callback_query(F.data == "buy_60")
+@dp.callback_query(F.data == "Купить промокод 60 дней (1300р)")
 async def buy_60(callback_query: types.CallbackQuery):
   await callback_query.message.reply_invoice(
       title="Промокод на 60 дней",
