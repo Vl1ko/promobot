@@ -40,52 +40,52 @@ async def admin_menu(message: types.Message):
       ), width=1)
   await message.answer("Выберите промокод, который желаете купить", reply_markup=builder.as_markup())
   
-@dp.callback_query(F.data == "Купить промокод 7 дней (220р)")
+@dp.callback_query(F.data == str(db.showed_gifts()[0]).replace("('", "").replace("',)", ""))
 async def buy_7(callback_query: types.CallbackQuery):
   await callback_query.message.reply_invoice(
       title="Промокод на 7 дней",
-      description="Промокод на 7 дней (220р)",
+      description=str(db.showed_gifts()[0]).replace("('", "").replace("',)", ""),
       currency="XTR",
       payload="test_payload",
       prices=[
-          types.LabeledPrice(label="Промокод на 7 дней", amount=100)
+          types.LabeledPrice(label="Промокод на 7 дней", amount=150)
       ]
   )
 
 
-@dp.callback_query(F.data == "Купить промокод 14 дней (380р)")
+@dp.callback_query(F.data == str(db.showed_gifts()[1]).replace("('", "").replace("',)", ""))
 async def buy_14(callback_query: types.CallbackQuery):
   await callback_query.message.reply_invoice(
       title="Промокод на 14 дней",
-      description="Промокод на 14 дней (380р)",
+      description=str(db.showed_gifts()[1]).replace("('", "").replace("',)", ""),
       currency="XTR",
       payload="test_payload",
       prices=[
-          types.LabeledPrice(label="Промокод на 14 дней", amount=200)
+          types.LabeledPrice(label="Промокод на 14 дней", amount=210)
       ]
   )
 
-@dp.callback_query(F.data == "Купить промокод 30 дней (760р)")
+@dp.callback_query(F.data == str(db.showed_gifts()[2]).replace("('", "").replace("',)", ""))
 async def buy_30(callback_query: types.CallbackQuery):
   await callback_query.message.reply_invoice(
       title="Промокод на 30 дней",
-      description="Промокод на 30 дней (760р)",
+      description=str(db.showed_gifts()[2]).replace("('", "").replace("',)", ""),
       currency="XTR",
       payload="test_payload",
       prices=[
-          types.LabeledPrice(label="Промокод на 30 дней", amount=400)
+          types.LabeledPrice(label="Промокод на 30 дней", amount=450)
       ]
   )
 
-@dp.callback_query(F.data == "Купить промокод 60 дней (1300р)")
+@dp.callback_query(F.data == str(db.showed_gifts()[3]).replace("('", "").replace("',)", ""))
 async def buy_60(callback_query: types.CallbackQuery):
   await callback_query.message.reply_invoice(
       title="Промокод на 60 дней",
-      description="Промокод на 60 дней (1300р)",
+      description=str(db.showed_gifts()[3]).replace("('", "").replace("',)", ""),
       currency="XTR",
       payload="test_payload",
       prices=[
-          types.LabeledPrice(label="Промокод на 60 дней", amount=700)
+          types.LabeledPrice(label="Промокод на 60 дней", amount=950)
       ] 
   )
 

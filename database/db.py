@@ -25,20 +25,20 @@ class Database:
           with self.connection:
             self.cursor.execute('''
                               INSERT INTO 'keyboard' ('id' ,'text','show') VALUES (?, ?, ?)
-                              ''', (7, 'Купить промокод 7 дней (220р)', 1,))
+                              ''', (7, 'Купить промокод 7 дней (320р)', 1,))
 
           
             self.cursor.execute('''
                               INSERT INTO 'keyboard' ('id' ,'text','show') VALUES (?, ?, ?)
-                              ''', (14, 'Купить промокод 14 дней (380р)', 1,))
+                              ''', (14, 'Купить промокод 14 дней (450р)', 1,))
 
             self.cursor.execute('''
                               INSERT INTO 'keyboard' ('id' ,'text','show') VALUES (?, ?, ?)
-                              ''', (30, 'Купить промокод 30 дней (760р)', 1,))
+                              ''', (30, 'Купить промокод 30 дней (1000р)', 1,))
           
             self.cursor.execute('''
                               INSERT INTO 'keyboard' ('id' ,'text','show') VALUES (?, ?, ?)
-                              ''', (60, 'Купить промокод 60 дней (1300р)', 1,))
+                              ''', (60, 'Купить промокод 60 дней (2000р)', 1,))
         except sqlite3.IntegrityError:
             pass
     def add_product(self, amount, number):
